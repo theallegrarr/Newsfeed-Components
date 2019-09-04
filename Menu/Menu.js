@@ -64,3 +64,23 @@ const header = document.querySelector('header');
 menu.addEventListener('click', () => {
   menuDiv.classList.toggle('menu--open');
 });
+
+
+$( '.menu-button' ).click(function() {
+  $( '.articles' ).animate({
+    opacity: 'toggle',
+    left: "+=50",
+    height: "toggle"
+  }, 5000, function() {
+    // Animation complete.
+    // console.log('animated');
+  });
+
+  $( '.menu--open' ).animate({
+    opacity: '1.0',
+    left: "+=50",
+    height: "100%"
+  }, 5000, function() {
+    
+  });
+});
