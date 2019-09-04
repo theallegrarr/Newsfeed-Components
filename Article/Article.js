@@ -1,5 +1,6 @@
-/* This is the data we will be using to create our article components */
-/* Look over this data, then proceed to line 91*/
+/* This is the data we will be using to create our article components
+Look over this data, then proceed to line 91*/
+
 const data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
@@ -99,6 +100,43 @@ const data = [
     <span class='expandButton'></span>
   </div>
 
+*/ 
+function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParagraph }) {
+  const article = document.createElement('div');
+  const h2 = document.createElement('h3');
+  const p = document.createElement('p');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const button = document.createElement('button');
+
+  h2.textContent = title;
+  p.textContent  = date;
+  p1.textContent = firstParagraph;
+  p2.textContent = secondParagraph;
+  p3.textContent = thirdParagraph;
+  button.textContent = 'expand';
+
+  article.classList.add('article');
+  button.classList.add('expandButton');
+  p.classList.add('date');
+
+  button.addEventListener('click', e => {
+    article.classList.toggle('article-open');
+  });
+
+  article.appendChild(h2);
+  article.appendChild(p);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(button);
+
+  return article;
+}
+
+/*
+
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
@@ -112,3 +150,11 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+const articles = data.map(articleMaker);
+
+const articlesContainer = document.querySelector('.articles');
+
+articles.forEach((element) => {
+  articlesContainer.appendChild(element);
+});
