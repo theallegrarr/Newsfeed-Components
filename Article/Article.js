@@ -120,6 +120,12 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
   article.classList.add('article');
   button.classList.add('expandButton');
   p.classList.add('date');
+  button.style.borderRadius = '7px';
+  button.style.border = '5px solid green';
+  button.style.backgroundColor = 'white';
+  button.style.fontSize = '15pt';
+  button.style.marginTop = '100px';
+  button.style.marginBottom = '2px';
 
   button.addEventListener('click', e => {
     article.classList.toggle('article-open');
